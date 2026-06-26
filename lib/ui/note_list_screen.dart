@@ -25,28 +25,36 @@ class NoteListScreen extends StatelessWidget {
                   child: ListTile(
                     title: Text(note.title),
                     subtitle: Text(note.description),
-                    trailing: IconButton(
-                      icon: const Icon(Icons.delete, color: Colors.red),
-                      onPressed: () {
-                        // Call the provider to delete the note
-                        Provider.of<NoteProvider>(
-                          context,
-                          listen: false,
-                        ).deleteNote(note.id!);
-                      },
-                      //Provider.of<NoteProvider>(context, listen: false) is a Flutter method used to fetch a
-                      //specific NoteProvider instance without triggering widget rebuilds when state changes.
-                      //The listen: false flag isolates your UI from data updates, preventing expensive or
-                      //unnecessary UI redraws when you only need to trigger a method.
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => AddNoteScreen(note: note),
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(
+                          icon: const Icon(Icons.edit, color: Colors.blue),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => AddNoteScreen(note: note),
+                              ),
+                            );
+                          },
                         ),
-                      );
-                    },
+                        IconButton(
+                          icon: const Icon(Icons.delete, color: Colors.red),
+                          onPressed: () {
+                            // Call the provider to delete the note
+                            Provider.of<NoteProvider>(
+                              context,
+                              listen: false,
+                            ).deleteNote(note.id!);
+                          },
+                          //Provider.of<NoteProvider>(context, listen: false) is a Flutter method used to fetch a
+                          //specific NoteProvider instance without triggering widget rebuilds when state changes.
+                          //The listen: false flag isolates your UI from data updates, preventing expensive or
+                          //unnecessary UI redraws when you only need to trigger a method.
+                        ),
+                      ],
+                    ),
                   ),
                 );
               },

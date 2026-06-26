@@ -29,7 +29,7 @@ class DBHelper {
 
   Future<void> _onCreate(Database db, int version) async {
     await db.execute(
-      'CREATE TABLE notes(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, description TEXT)',
+      'CREATE TABLE notes(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, description TEXT, date TEXT)',
     );
   }
 

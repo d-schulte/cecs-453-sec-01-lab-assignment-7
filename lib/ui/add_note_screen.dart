@@ -24,6 +24,7 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
         id: widget.note?.id,
         title: _titleController.text,
         description: _descriptionController.text,
+        date: widget.note?.date ?? DateTime.now(),
       );
 
       final provider = Provider.of<NoteProvider>(context, listen: false);

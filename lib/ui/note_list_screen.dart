@@ -27,6 +27,8 @@ class NoteListScreen extends StatelessWidget {
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Text('ID: ${note.id}'),
+                        const SizedBox(height: 4),
                         Text(note.description),
                         const SizedBox(height: 4),
                         Text(

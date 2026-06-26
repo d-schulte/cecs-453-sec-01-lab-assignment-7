@@ -4,7 +4,15 @@ import 'package:lab_assignment_7/di/service_locator.dart';
 import 'package:lab_assignment_7/providers/note_provider.dart';
 import 'package:lab_assignment_7/ui/note_list_screen.dart';
 
+import 'package:flutter/foundation.dart';
+import 'package:sqflite/sqflite.dart';
+import 'package:sqflite_common_ffi_web/sqflite_ffi_web.dart';
+
 void main() {
+  if (kIsWeb) {
+    databaseFactory = databaseFactoryFfiWeb;
+  }
+
   setupLocator(); // Set up our dependencies
   runApp(const MyApp());
 }

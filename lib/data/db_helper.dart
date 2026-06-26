@@ -2,6 +2,8 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:lab_assignment_7/data/note_model.dart';
 
+import 'package:flutter/foundation.dart';
+
 class DBHelper {
   static final DBHelper _instance = DBHelper._internal();
   factory DBHelper() => _instance;
@@ -14,11 +16,18 @@ class DBHelper {
   }
 
   Future<Database> _initDb() async {
-    String path = join(await getDatabasesPath(), 'notes.db');
+    String path;
+
+    if (kIsWeb) {
+      path = 'notes.db';
+    } else {
+      path = join(await getDatabasesPath(), 'notes.db');
+    }
+
     return await openDatabase(path, version: 1, onCreate: _onCreate);
   }
 
-  void _onCreate(Database db, int version) async {
+  Future<void> _onCreate(Database db, int version) async {
     await db.execute(
       'CREATE TABLE notes(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, description TEXT)',
     );

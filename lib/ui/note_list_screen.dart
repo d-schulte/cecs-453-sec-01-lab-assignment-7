@@ -24,7 +24,16 @@ class NoteListScreen extends StatelessWidget {
                   // ... UI for the note card
                   child: ListTile(
                     title: Text(note.title),
-                    subtitle: Text(note.description),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(note.description),
+                        const SizedBox(height: 4),
+                        Text(
+                          '${note.date.month}/${note.date.day}/${note.date.year}',
+                        ),
+                      ],
+                    ),
                     trailing: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [

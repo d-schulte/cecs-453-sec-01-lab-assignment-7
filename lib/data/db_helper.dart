@@ -1,3 +1,7 @@
+// Lab assignment 7 - SQLite, Singleton, Repository, MVVM, and GetIt
+// Group: Colin Schulte, Dylan Schulte
+// db_helper.dart
+
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:lab_assignment_7/data/note_model.dart';
@@ -18,6 +22,7 @@ class DBHelper {
   Future<Database> _initDb() async {
     String path;
 
+    // Add support for web
     if (kIsWeb) {
       path = 'notes.db';
     } else {

@@ -1,3 +1,7 @@
+// Lab assignment 7 - SQLite, Singleton, Repository, MVVM, and GetIt
+// Group: Colin Schulte, Dylan Schulte
+// note_list_screen.dart
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:lab_assignment_7/providers/note_provider.dart';

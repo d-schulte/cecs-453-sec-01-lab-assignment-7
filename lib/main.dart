@@ -1,3 +1,7 @@
+// Lab assignment 7 - SQLite, Singleton, Repository, MVVM, and GetIt
+// Group: Colin Schulte, Dylan Schulte
+// main.dart
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:lab_assignment_7/di/service_locator.dart';
@@ -9,6 +13,7 @@ import 'package:sqflite/sqflite.dart';
 import 'package:sqflite_common_ffi_web/sqflite_ffi_web.dart';
 
 void main() {
+  // Add support for web
   if (kIsWeb) {
     databaseFactory = databaseFactoryFfiWeb;
   }

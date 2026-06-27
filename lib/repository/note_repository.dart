@@ -1,3 +1,7 @@
+// Lab assignment 7 - SQLite, Singleton, Repository, MVVM, and GetIt
+// Group: Colin Schulte, Dylan Schulte
+// note_repository.dart
+
 import 'package:lab_assignment_7/data/db_helper.dart';
 import 'package:lab_assignment_7/data/note_model.dart';
 

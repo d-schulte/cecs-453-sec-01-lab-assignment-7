@@ -1,3 +1,7 @@
+// Lab assignment 7 - SQLite, Singleton, Repository, MVVM, and GetIt
+// Group: Colin Schulte, Dylan Schulte
+// add_note_screen.dart
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:lab_assignment_7/providers/note_provider.dart';
@@ -24,11 +28,12 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
         id: widget.note?.id,
         title: _titleController.text,
         description: _descriptionController.text,
-        date: widget.note?.date ?? DateTime.now(),
+        date: widget.note?.date ?? DateTime.now(), // Default date for new note
       );
 
       final provider = Provider.of<NoteProvider>(context, listen: false);
 
+      // Upsert note
       if (widget.note == null) {
         await provider.addNote(note);
       } else {
@@ -45,6 +50,7 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
   void initState() {
     super.initState();
 
+    // Load existing note data
     if (widget.note != null) {
       _titleController.text = widget.note!.title;
       _descriptionController.text = widget.note!.description;
@@ -70,6 +76,7 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
           key: _formKey,
           child: Column(
             children: [
+              // Fields for title and description
               TextFormField(
                 controller: _titleController,
                 decoration: const InputDecoration(

@@ -1,3 +1,7 @@
+// Lab assignment 7 - SQLite, Singleton, Repository, MVVM, and GetIt
+// Group: Colin Schulte, Dylan Schulte
+// note_model.dart
+
 class Note {
   final int? id;
   final String title;
@@ -15,7 +19,7 @@ class Note {
       'id': id,
       'title': title,
       'description': description,
-      "date": date.toIso8601String(),
+      "date": date.toIso8601String(), // Convert date to string
     };
   }
 
